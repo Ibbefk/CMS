@@ -1,0 +1,66 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms" Version="14.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <!-- Razor files are needed for the backoffice to work correctly -->
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
+    <RazorCompileOnBuild>false</RazorCompileOnBuild>
+    <RazorCompileOnPublish>false</RazorCompileOnPublish>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\temp\ibrahimcmsuppgift\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\media\1hncb513\pj4-1.png" />
+    <Content Include="wwwroot\media\2gri4ju4\image-21-min-2.png" />
+    <Content Include="wwwroot\media\3msdlhe0\image-104-1.png" />
+    <Content Include="wwwroot\media\55qnzw0x\mceclip0.png" />
+    <Content Include="wwwroot\media\5g4dzr3n\img_choose_01_home01-1.png" />
+    <Content Include="wwwroot\media\d12nznna\image-22-min-1.png" />
+    <Content Include="wwwroot\media\eaem4uvy\kevin-gardner.png" />
+    <Content Include="wwwroot\media\gw1lameb\image-18-min-1.png" />
+    <Content Include="wwwroot\media\gwbmekzn\img-1-1.png" />
+    <Content Include="wwwroot\media\hn1hoaba\img-5-e1695109900349-1.png" />
+    <Content Include="wwwroot\media\jitjn2it\image-13-min-1.png" />
+    <Content Include="wwwroot\media\kxzli0uc\img-1-4-1.png" />
+    <Content Include="wwwroot\media\mkvfjs4z\kevin-gardner-1.png" />
+    <Content Include="wwwroot\media\mr2gywqx\blobid1.png" />
+    <Content Include="wwwroot\media\odfpipvi\sl-home2.png" />
+    <Content Include="wwwroot\media\ohrnyov2\pj3.png" />
+    <Content Include="wwwroot\media\pszncbcv\blobid2.png" />
+    <Content Include="wwwroot\media\qe1a14ds\image-47-1.png" />
+    <Content Include="wwwroot\media\t3xj4vwp\image-24-min-1.png" />
+    <Content Include="wwwroot\media\tbxmanam\pj4.png" />
+    <Content Include="wwwroot\media\uhsocuau\img-4-2-1.png" />
+    <Content Include="wwwroot\media\vojiljdg\pj2.png" />
+    <Content Include="wwwroot\media\x3in34c1\mceclip3.png" />
+    <Content Include="wwwroot\media\xvihr0uf\image-23-min-1.png" />
+    <Content Include="wwwroot\media\y3qnq1em\image-106-1.png" />
+    <Content Include="wwwroot\media\y4hjmc4s\mask-group-8-1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\temp\ibrahimcmsuppgift\.editorconfig" />
+  </ItemGroup>
+
+</Project>

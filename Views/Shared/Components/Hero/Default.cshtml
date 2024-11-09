@@ -1,0 +1,12 @@
+﻿@model HeroViewModel
+
+<section class="hero-section" style="background-image: url('@Model.ImageUrl');">
+    <div class="hero-content">
+        <h1>@Model.Title</h1>
+        <p>@Model.Subtitle</p>
+        @if (!string.IsNullOrEmpty(Model.ButtonText))
+        {
+            <a href="@Model.ButtonLink" class="btn-primary">@Model.ButtonText</a>
+        }
+    </div>
+</section>

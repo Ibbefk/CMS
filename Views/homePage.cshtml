@@ -1,0 +1,166 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<HomePageViewModel>
+
+@{
+    Layout = "master.cshtml";
+}
+
+
+
+    @await Component.InvokeAsync("Hero")
+<div class="container">
+
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <div class="about-content">
+            <h4>ABOUT US</h4>
+            <h2>@Model.AboutUsTitle</h2>
+            <p>"@Model.AboutUsContent"</p>
+        </div>
+        <div class="call-back-form">
+            <!-- Placeholder for a call-back form -->
+            <h3>Request a call back</h3>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+                <label for="service">Service</label>
+                <select id="service" name="service">
+                    <option value="financial-consulting">Financial Consulting</option>
+                    <!-- Add other options as necessary -->
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+@*     <!-- Our Services Section -->
+    <section class="our-services">
+        <h4>OUR SERVICES</h4>
+        <h2>@Model.OurServicesTitle</h2>
+        <div class="services-grid">
+            @foreach (var service in Model.OurServicesList)
+            {
+                <div class="service-item">
+                    <img src="@service." alt="@service.Name" />
+                    <h3>@service.Name</h3>
+                    <p>@service.Value("serviceDescription")</p>
+                </div>
+            }
+        </div>
+    </section>
+ *@
+    <!-- Trust Section -->
+@*     <section class="trust-section">
+        <h4>@Model.TrustClientTitle</h4>
+        <h2>@Model.TrustClientCount+ clients</h2>
+        <p>@Model.TrustClientDescription</p>
+        <a href="#" class="btn-primary">Read our story</a>
+    </section> *@
+
+    <!-- Success Stories Section -->
+@*     <section class="success-stories" style="background-color: #4F5955;">
+        <h4>SUCCESS STORIES</h4>
+        <h2>@Model.SuccessStoryTitle</h2>
+        <div class="stats">
+            <div class="stat-item">
+                <h3>@Model.SuccessStoryStats.ClientsServed</h3>
+                <p>More than 100 customers served</p>
+            </div>
+            <div class="stat-item">
+                <h3>@Model.SuccessStoryStats.ProjectsCompleted</h3>
+                <p>More than 370 projects completed</p>
+            </div>
+            <div class="stat-item">
+                <h3>@Model.SuccessStoryStats.BranchesOpened</h3>
+                <p>More than 125 branches worldwide</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Projects Section -->
+    <section class="recent-projects">
+        <h4>OUR PROJECTS</h4>
+        <h2>@Model.RecentProjectsTitle</h2>
+        <div class="projects-grid">
+            @foreach (var project in Model.RecentProjectsList)
+            {
+                <div class="project-item">
+                    <img src="@project.Value("projectImage").Url()" alt="@project.Name" />
+                    <h3>@project.Name</h3>
+                    <p>@project.Value("projectDescription")</p>
+                </div>
+            }
+        </div>
+    </section> *@
+</div>
+
+
+<style>
+    .about-us {
+        display: flex;
+        justify-content: space-between;
+        margin: 40px 0;
+    }
+
+    .about-content {
+        width: 60%;
+    }
+
+    .call-back-form {
+        width: 35%;
+        background-color: #4F5955;
+        padding: 20px;
+        color: white;
+    }
+
+    .services-grid, .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    .service-item, .project-item {
+        text-align: center;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .trust-section {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .success-stories {
+        padding: 40px;
+        color: white;
+    }
+
+    .stats {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .btn-primary {
+        background-color: #4F5955;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+        .btn-primary:hover {
+            background-color: #333;
+        }
+</style>
